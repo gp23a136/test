@@ -1,0 +1,41 @@
+import os
+
+class FileManager:
+
+    def backup(self):
+
+        filename = input("filename: ")
+
+        cmd = "cp " + filename + " ./backup"
+
+        os.system(cmd)
+
+    def read_file(self):
+
+        filename = input("file: ")
+
+        path = "./logs/" + filename
+
+        with open(path, "r") as f:
+            print(f.read())
+
+if __name__ == "__main__":
+
+    manager = FileManager()
+
+    while True:
+
+        print("1.Backup")
+        print("2.Read")
+        print("3.Exit")
+
+        choice = input("> ")
+
+        if choice == "1":
+            manager.backup()
+
+        elif choice == "2":
+            manager.read_file()
+
+        else:
+            break
